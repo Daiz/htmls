@@ -25,5 +25,4 @@ module.exports = (code, output = "#base\n") ->
   fn  = "return (args) ->\n  fn = ->\n"
   fn += indent "#output\n#code\n" 2
   fn += "\n    str\n  fn.call args"
-  #console.log fn
   return (new Function lsc.compile fn, {+bare})!
