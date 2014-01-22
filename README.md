@@ -74,7 +74,7 @@ Given `{title: "HTMLS", usingHtmls: true}` as input, this compiles to:
 
 ## Usage
 
-Usage of htmls is quite straightforward:
+Usage of HTMLS is quite straightforward. You load the module, you call it with a template string and it spits out a function that you can then use to render said template with any given data. Like so:
 
 ```javascript
 // JavaScript
