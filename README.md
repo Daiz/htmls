@@ -31,7 +31,7 @@ html {lang: \en} ->
     """
   body ->
     header ->
-      h1 "HTMLS - HyperText Markup LiveScript" 
+      h1 "HTMLS - HyperText Markup LiveScript!" 
     main ->
       if args.using-htmls
         p "I see that you are using HTMLS. You must be very brave."
@@ -49,9 +49,9 @@ Given `{title: "HTMLS", usingHtmls: true}` as input, this compiles to:
 <html lang="en">
 <head>
   <meta charset="utf8">
-  <title>HTMLS - HyperText Markup LiveScript</title>
-  <meta>
-  <link href="htmls.css" rel="stylesheet">
+  <title>HTMLS</title>
+  <meta description="A silly experiment in templating">
+  <link rel="stylesheet" href="htmls.css">
   <script type="text/javascript">
     if (javascript === "stinks") {
       console.log("You should use LiveScript instead!");
@@ -60,7 +60,7 @@ Given `{title: "HTMLS", usingHtmls: true}` as input, this compiles to:
 </head>
 <body>
   <header>
-    <h1>HTMLS - HyperText Markup LiveScript</h1>
+    <h1>HTMLS - HyperText Markup LiveScript!</h1>
   </header>
   <p>I see that you are using HTMLS. You must be very brave.</p>
   <footer>

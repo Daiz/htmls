@@ -12,7 +12,7 @@ html {lang: \en} ->
     """
   body ->
     header ->
-      h1 "HTMLS - HyperText Markup LiveScript" 
+      h1 "HTMLS - HyperText Markup LiveScript!" 
     main ->
       if args.using-htmls
         p "I see that you are using HTMLS. You must be very brave."
