@@ -1,0 +1,30 @@
+{
+  "name": "htmls",
+  "version": "0.1.0",
+  "description": "HyperText Markup LiveScript!",
+  "author": "Daiz <taneli.vatanen@gmail.com",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "prelude-ls": "~1.0.3",
+    "LiveScript": "~1.2.0",
+    "shelljs": "~0.2.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "lsc make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Daiz-/htmls.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Daiz-/htmls/issues"
+  },
+  "keywords": [
+    "livescript",
+    "html",
+    "template",
+    "templating"
+  ]
+}
