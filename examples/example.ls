@@ -1,6 +1,6 @@
 doctype \html
 html {lang: \en} ->
-  head !->
+  head ->
     meta {charset: \utf8}
     title args.title
     meta {description: "A silly experiment in templating"}
