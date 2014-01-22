@@ -4,11 +4,11 @@ Inspired by HTML templating engines like [jade](http://jade-lang.com/), I got an
 
 What you see here is the outcome of said idea - a functional (HTML5) templating engine that, as originally visioned, uses proper LiveScript code as its templates.
 
-**Note:** While HTMLS is available on npm and provably works, it was put together in a couple hours largely as a fun exercise, so there are quite a few things to keep in mind and for actual production things you should probably use a more mature templating engine.
+**Word of Warning:** While HTMLS is available on npm, keep in mind that it was something put together in a few hours as a fun exercise. As such, you should probably not use it in any kind of serious production and go with something more stable and mature instead.
 
 ## Installation
 
-You can get htmls via npm:
+You can get HTMLS via npm:
 
 ```bash
 $ npm install htmls
@@ -90,7 +90,7 @@ template-func = htmls template-text
 html = template-func "John Smith" # <p>Hello, John Smith!</p>
 ```
 
-## Writing templates
+## Writing Templates
 
 - You can only use valid HTML5 element names.
 - It's probably a good idea not to use HTML5 element names as variable names in your templates. Something will likely break.
