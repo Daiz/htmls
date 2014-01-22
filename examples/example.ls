@@ -1,11 +1,11 @@
 doctype \html
 html {lang: \en} ->
   head ->
-    meta {charset: \utf8}
+    meta charset: \utf8
     title args.title
-    meta {description: "A silly experiment in templating"}
-    link {rel: \stylesheet href: \htmls.css}
-    script {type: 'text/javascript'} """
+    meta description: "A silly experiment in templating"
+    link rel: \stylesheet href: \htmls.css
+    script {type: "text/javascript"} """
       if (javascript === "stinks") {
         console.log("You should use LiveScript instead!");
       }
