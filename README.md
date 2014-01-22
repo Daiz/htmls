@@ -62,7 +62,9 @@ Given `{title: "HTMLS", usingHtmls: true}` as input, this compiles to:
   <header>
     <h1>HTMLS - HyperText Markup LiveScript!</h1>
   </header>
-  <p>I see that you are using HTMLS. You must be very brave.</p>
+  <main>
+    <p>I see that you are using HTMLS. You must be very brave.</p>
+  </main>
   <footer>
     HTMLS, a silly experiment by <a href="https://github.com/Daiz-/">Daiz</a>
   </footer>
