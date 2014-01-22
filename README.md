@@ -1,6 +1,6 @@
 # HTMLS - HyperText Markup LiveScript!
 
-Inspired by HTML templating engines like [jade](http://jade-lang.com/), I got an idea - *"Could I make a template engine that uses proper LiveScript code as templates?"*
+Inspired by HTML templating engines like [jade](http://jade-lang.com/), I got an idea - *"Could I make a template engine that uses proper [LiveScript](http://livescript.net) code as templates?"*
 
 What you see here is the outcome of said idea - a functional (HTML5) templating engine that, as originally visioned, uses proper LiveScript code as its templates.
 
