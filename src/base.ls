@@ -1,8 +1,8 @@
 module.exports = """
 str = ""
-doctype = !-> str += "<!DOCTYPE \#it>"
-$ = !-> str += it
-out = (name, close, opts, content) !->
+doctype = !~> str += "<!DOCTYPE \#it>"
+$ = !~> str += it
+out = (name, close, opts, content) !~>
   switch typeof opts
     case \\object
       str += "<\#name"

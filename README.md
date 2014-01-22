@@ -21,7 +21,7 @@ doctype \html
 html {lang: \en} ->
   head ->
     meta charset: \utf8
-    title args.title
+    title @title
     meta description: "A silly experiment in templating"
     link rel: \stylesheet href: \htmls.css
     script {type: "text/javascript"} """
@@ -33,7 +33,7 @@ html {lang: \en} ->
     header ->
       h1 "HTMLS - HyperText Markup LiveScript!" 
     main ->
-      if args.using-htmls
+      if @using-htmls
         p "I see that you are using HTMLS. You must be very brave."
       else
         p "Maybe you have made a sensible decision after all?"
@@ -77,7 +77,7 @@ Usage of htmls is quite straightforward:
 ```javascript
 // JavaScript
 var htmls = require('htmls');
-var templateText = 'p "Hello, #args!"';
+var templateText = 'p "Hello, #@!"';
 var templateFunc = htmls(templateCode);
 var html = templateFunc("John Smith"); // <p>Hello, John Smith!</p> 
 ```
@@ -85,7 +85,7 @@ var html = templateFunc("John Smith"); // <p>Hello, John Smith!</p>
 ```livescript
 # LiveScript
 require! \htmls
-template-text = 'p "Hello, #args!"'
+template-text = 'p "Hello, #@!"'
 template-func = htmls template-text
 html = template-func "John Smith" # <p>Hello, John Smith!</p>
 ```
@@ -94,5 +94,6 @@ html = template-func "John Smith" # <p>Hello, John Smith!</p>
 
 - You can only use valid HTML5 element names.
 - It's probably a good idea not to use HTML5 element names as variable names in your templates. Something will likely break.
-- Otherwise, regular LiveScript code should work just fine inside your templates.
+- Regular LiveScript may or may play nice inside your templates. Everything should be fine if you stick to stuff like for loops and ifs though, which should be more than enough for basic templating purposes, right?
+- Arguments are accessed via `this` or `@` for short.
 - If you want plain text output inside an element, use the `$` function as seen in the example above.

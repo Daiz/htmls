@@ -2,7 +2,7 @@ doctype \html
 html {lang: \en} ->
   head ->
     meta charset: \utf8
-    title args.title
+    title @title
     meta description: "A silly experiment in templating"
     link rel: \stylesheet href: \htmls.css
     script {type: "text/javascript"} """
@@ -14,7 +14,7 @@ html {lang: \en} ->
     header ->
       h1 "HTMLS - HyperText Markup LiveScript!" 
     main ->
-      if args.using-htmls
+      if @using-htmls
         p "I see that you are using HTMLS. You must be very brave."
       else
         p "Maybe you have made a sensible decision after all?"

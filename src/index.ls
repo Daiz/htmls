@@ -8,12 +8,12 @@ require! {
 
 el = (name, close = 1) ->
   if (voids.index-of name) > -1 then close = 0
-  "#name = (a, b) !-> out \\#name #close a, b\n"
+  "#name = (a, b) !~> out \\#name #close a, b\n"
 
-indent = (str) ->
+indent = (str, t = 1) ->
   str
   |> lines
-  |> map (-> "  #it")
+  |> map (-> "  " * t + it)
   |> unlines
 
 module.exports = (code, output = "#base\n") ->
@@ -21,5 +21,9 @@ module.exports = (code, output = "#base\n") ->
   |> filter (-> (elems.index-of it) > -1)
   |> unique
   |> each (-> output += el it)
-  fn = "return (args)->\n" + indent "#output\n#code\n" + \str
+  code .= replace /->/g '!~>'
+  fn  = "return (args) ->\n  fn = ->\n"
+  fn += indent "#output\n#code\n" 2
+  fn += "\n    str\n  fn.call args"
+  #console.log fn
   return (new Function lsc.compile fn, {+bare})!
