@@ -17,13 +17,34 @@ indent = (str, t = 1) ->
   |> map (-> "  " * t + it)
   |> unlines
 
+parse-nodes = (code) ->
+  vars = []
+  nodes = []
+  temp = []
+  tokens = lsc.tokens code
+  for token, i in tokens
+    switch token.0
+    case \FUNCTION
+      vars.push token.1
+    case \ID
+      switch tokens[i+1].0
+      case \ASSIGN
+        vars.push token.1
+      case \CALL(
+        temp.push token.1
+  vars = unique vars
+  temp = unique temp
+  for node in temp
+    if vars.index-of node == -1
+      nodes.push node
+  nodes
+
 compile = (code) ->
   compile-html code
 
 compile-html = (code, output = "#base\n") ->
-  [t.1 for t in (lsc.tokens code) when t.0 == \ID]
+  parse-nodes code
   |> filter (-> (elems.index-of it) > -1)
-  |> unique
   |> each (-> output += el it)
   code .= replace /->/g '!->'
   code .= replace /@/g 'args.'
