@@ -21,7 +21,7 @@ indent = (str, t = 1) ->
   |> unlines
 
 parse-nodes = (code) ->
-  vars = []
+  vars = [\xml, \doctype, \$]
   nodes = []
   temp = []
   tokens = lsc.tokens code
@@ -38,7 +38,7 @@ parse-nodes = (code) ->
   vars = unique vars
   temp = unique temp
   for node in temp
-    if vars.index-of node == -1
+    if (vars.index-of node) == -1
       nodes.push node
   nodes
 
