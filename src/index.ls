@@ -32,10 +32,12 @@ parse-nodes = (code) ->
         vars.push token.1
       case \CALL(
         temp.push token.1
+  vars = unique vars
+  temp = unique temp
   for node in temp
     if vars.index-of node == -1
       nodes.push node
-  unique nodes
+  nodes
 
 compile = (code) ->
   compile-html code
