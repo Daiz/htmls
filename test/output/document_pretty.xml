@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document>
+  <Author>
+    Daiz
+  </Author>
+  <Paragraphs>
+    <Block>
+      Test block 1
+    </Block>
+    <Block>
+      Test block 2
+    </Block>
+  </Paragraphs>
+</Document>
