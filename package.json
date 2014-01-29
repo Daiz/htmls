@@ -10,7 +10,10 @@
     "LiveScript": "~1.2.0",
     "shelljs": "~0.2.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.17.1"
+  },
   "scripts": {
     "postinstall": "lsc make"
   },
