@@ -1,4 +1,3 @@
-module.exports = """
 str = ""
 doctype = !~> str += "<!DOCTYPE \#it>"
 $ = !~> str += it
@@ -26,4 +25,3 @@ out = (name, close, opts, content) !~>
       str += "<\#name>"
       opts!
       if close then str += "</\#name>"
-"""
