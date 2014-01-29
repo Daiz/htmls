@@ -66,7 +66,7 @@ compile-xml = (code, output = "#base\n") ->
   |> each (-> output += xel it)
   common-compile code, output
 
-module.exports = {
+module.exports = compile <<< {
   compile
   compile-html
   compile-xml
