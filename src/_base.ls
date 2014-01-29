@@ -4,6 +4,13 @@ opts.indent ?= '  '
 str = ""
 indent-level = 0
 indent = -> [opts.indent for i from 0 til indent-level].join ''
+xml = (attrs = {version: '1.0' encoding: 'UTF-8'}) !->
+  str += '<?xml'
+  for key, value of attrs
+    str += " #key=\"#value\""
+  str += '?>'
+  if opts.pretty
+    str += '\n'
 doctype = !->
   str += "<!DOCTYPE #it>"
   if opts.pretty
