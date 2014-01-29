@@ -9,7 +9,10 @@ base = fs.read-file-sync __dirname + '/_base.ls' 'utf8'
 
 el = (name, close = 1) ->
   if (voids.index-of name) > -1 then close = 0
-  "#name = (a, b) !~> out \\#name #close a, b\n"
+  "#name = (a, b) !-> out \\#name #close a, b\n"
+
+xel = (name, close = 1) ->
+  "#name = (a, b) !-> out \\#name #close a, b\n"
 
 indent = (str, t = 1) ->
   str
