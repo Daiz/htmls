@@ -27,8 +27,8 @@ compile-html = (code, output = "#base\n") ->
   |> each (-> output += el it)
   code .= replace /->/g '!->'
   code .= replace /@/g 'args.'
-  fn  = "return (args) ->\n"
-  fn += indent "#output\n#code\nstr"
+  fn  = "return (args, opts) ->\n"
+  fn += indent "#output\n#code\nstr.trim!"
   return (new Function lsc.compile fn, {+bare})!
 
 module.exports = {
