@@ -1,9 +1,10 @@
 require! {
   lsc: \LiveScript
-  base: './base'
   elems: './elements'
   voids: './void'
+  \fs
 }
+base = fs.read-file-sync './_base.ls' 'utf8'
 {filter, each, map, lines, unlines, unique} = require 'prelude-ls'
 
 el = (name, close = 1) ->
