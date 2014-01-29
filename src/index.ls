@@ -4,7 +4,7 @@ require! {
   voids: './void'
   \fs
 }
-base = fs.read-file-sync './_base.ls' 'utf8'
+base = fs.read-file-sync __dirname + '/_base.ls' 'utf8'
 {filter, each, map, lines, unlines, unique} = require 'prelude-ls'
 
 el = (name, close = 1) ->
