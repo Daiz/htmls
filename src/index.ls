@@ -17,7 +17,10 @@ indent = (str, t = 1) ->
   |> map (-> "  " * t + it)
   |> unlines
 
-module.exports = (code, output = "#base\n") ->
+compile = (code) ->
+  compile-html code
+
+compile-html = (code, output = "#base\n") ->
   [t.1 for t in (lsc.tokens code) when t.0 == \ID]
   |> filter (-> (elems.index-of it) > -1)
   |> unique
@@ -27,3 +30,8 @@ module.exports = (code, output = "#base\n") ->
   fn += indent "#output\n#code\n" 2
   fn += "\n    str\n  fn.call args"
   return (new Function lsc.compile fn, {+bare})!
+
+module.exports = {
+  compile,
+  compile-html
+}
