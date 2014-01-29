@@ -25,10 +25,10 @@ compile-html = (code, output = "#base\n") ->
   |> filter (-> (elems.index-of it) > -1)
   |> unique
   |> each (-> output += el it)
-  code .= replace /->/g '!~>'
-  fn  = "return (args) ->\n  fn = ->\n"
-  fn += indent "#output\n#code\n" 2
-  fn += "\n    str\n  fn.call args"
+  code .= replace /->/g '!->'
+  code .= replace /@/g 'args.'
+  fn  = "return (args, opts) ->\n"
+  fn += indent "#output\n#code\nstr.trim!"
   return (new Function lsc.compile fn, {+bare})!
 
 module.exports = {
