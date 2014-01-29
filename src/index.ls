@@ -1,9 +1,10 @@
 require! {
   lsc: \LiveScript
-  base: './base'
   elems: './elements'
   voids: './void'
+  \fs
 }
+base = fs.read-file-sync __dirname + '/_base.ls' 'utf8'
 {filter, each, map, lines, unlines, unique} = require 'prelude-ls'
 
 el = (name, close = 1) ->
@@ -16,13 +17,21 @@ indent = (str, t = 1) ->
   |> map (-> "  " * t + it)
   |> unlines
 
-module.exports = (code, output = "#base\n") ->
+compile = (code) ->
+  compile-html code
+
+compile-html = (code, output = "#base\n") ->
   [t.1 for t in (lsc.tokens code) when t.0 == \ID]
   |> filter (-> (elems.index-of it) > -1)
   |> unique
   |> each (-> output += el it)
-  code .= replace /->/g '!~>'
-  fn  = "return (args) ->\n  fn = ->\n"
-  fn += indent "#output\n#code\n" 2
-  fn += "\n    str\n  fn.call args"
+  code .= replace /->/g '!->'
+  code .= replace /@/g 'args.'
+  fn  = "return (args, opts) ->\n"
+  fn += indent "#output\n#code\nstr.trim!"
   return (new Function lsc.compile fn, {+bare})!
+
+module.exports = {
+  compile,
+  compile-html
+}
