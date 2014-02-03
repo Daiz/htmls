@@ -6,11 +6,11 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "dependencies": {
-    "prelude-ls": "~1.0.3",
     "LiveScript": "~1.2.0",
-    "shelljs": "~0.2.6"
+    "prelude-ls": "~1.0.3"
   },
   "devDependencies": {
+    "shelljs": "~0.2.6",
     "chai": "~1.8.1",
     "mocha": "~1.17.1"
   },
