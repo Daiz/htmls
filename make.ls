@@ -16,9 +16,9 @@ target.all = !->
       _in = cat path.join './src/' file
       _out = path.join './lib/' file.replace ext, '.js'
       lsc.compile _in, {+bare} .to _out
-    else
-      mkdir \-p "./lib/#file"
-    if file.match just-copy
+    else if file.match just-copy
       _in = path.join './src/' file
       _out = path.join './lib/' file
       cp _in, _out
+    else
+      mkdir \-p "./lib/#file"
