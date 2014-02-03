@@ -15,7 +15,7 @@
     "mocha": "~1.17.1"
   },
   "scripts": {
-    "postinstall": "lsc make",
+    "prepublish": "lsc make",
     "test": "mocha",
     "spec": "mocha -R spec"
   },
