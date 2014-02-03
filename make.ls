@@ -20,5 +20,5 @@ target.all = !->
       mkdir \-p "./lib/#file"
     if file.match just-copy
       _in = cat path.join './src/' file
-      _out path.join './lib/' file
+      _out = path.join './lib/' file
       cp _in, _out
