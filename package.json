@@ -1,23 +1,22 @@
 {
   "name": "htmls",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "description": "HyperText Markup LiveScript!",
   "author": "Daiz <taneli.vatanen@gmail.com>",
   "license": "MIT",
   "main": "./lib/index.js",
   "dependencies": {
-    "LiveScript": "~1.2.0",
-    "prelude-ls": "~1.0.3"
+    "LiveScript": "~1.3.1",
+    "prelude-ls": "~1.2.1"
   },
   "devDependencies": {
-    "shelljs": "~0.2.6",
-    "chai": "~1.8.1",
-    "mocha": "~1.17.1"
+    "shelljs": "~0.8.5",
+    "chai": "~4.3.7",
+    "mocha": "~10.2.0"
   },
   "scripts": {
     "prepublish": "lsc make",
-    "test": "mocha",
-    "spec": "mocha -R spec"
+    "test": "mocha test/*.ls"
   },
   "repository": {
     "type": "git",
@@ -31,5 +30,10 @@
     "html",
     "template",
     "templating"
-  ]
+  ],
+  "mocha": {
+    "ui": "tdd",
+    "require": "LiveScript",
+    "reporter": "spec"
+  }
 }

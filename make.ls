@@ -1,7 +1,7 @@
 require 'shelljs/make'
 require! {
-  lsc: \LiveScript
-  \path
+  LiveScript: lsc
+  path
 }
 
 ext = /\.ls$/

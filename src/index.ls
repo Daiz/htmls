@@ -1,8 +1,8 @@
 require! {
-  lsc: \LiveScript
-  elems: './elements'
-  voids: './void'
-  \fs
+  LiveScript: lsc
+  './elements': elems
+  './void': voids
+  fs
 }
 base = fs.read-file-sync __dirname + '/_base.ls' 'utf8'
 {filter, each, map, lines, unlines, unique} = require 'prelude-ls'
