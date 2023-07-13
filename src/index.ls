@@ -2,13 +2,13 @@ require! {
   LiveScript: lsc
   './elements': elems
   './void': voids
-  fs
+  fs: {read-file-sync}
+  'prelude-ls': {filter, each, map, lines, unlines, unique}
 }
-base = fs.read-file-sync __dirname + '/_base.ls' 'utf8'
-{filter, each, map, lines, unlines, unique} = require 'prelude-ls'
+base = read-file-sync __dirname + '/_base.ls' 'utf8'
 
 el = (name, close = 1) ->
-  if (voids.index-of name) > -1 then close = 0
+  if voids.includes name then close = 0
   "#name = (a, b) !-> out \\#name #close a, b\n"
 
 xel = (name, close = 1) ->
@@ -38,7 +38,7 @@ parse-nodes = (code) ->
   vars = unique vars
   temp = unique temp
   for node in temp
-    if (vars.index-of node) == -1
+    unless vars.includes node
       nodes.push node
   nodes
 
@@ -57,7 +57,7 @@ compile = (code) ->
 
 compile-html = (code, output = "#base\n") ->
   parse-nodes code
-  |> filter (-> (elems.index-of it) > -1)
+  |> filter (-> (elems.includes it) || (voids.includes it))
   |> each (-> output += el it)
   common-compile code, output
 

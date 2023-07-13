@@ -4,3 +4,4 @@ html ->
     title \Test
   body ->
     p \Test
+    hr ->
